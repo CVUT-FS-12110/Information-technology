@@ -1,0 +1,9 @@
+
+services:
+  ssh_lab:
+    build: .
+    container_name: ssh_lab
+    ports:
+      - "2222:22"  # maps container SSH to host port 2222
+    volumes:
+      - ./runner.sh:/home/student/runner.sh:ro
