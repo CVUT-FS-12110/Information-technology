@@ -44,7 +44,7 @@ Used to navigate between folders.
 ```bash
 cd folder_name        # Go into a folder
 cd ..                 # Go one level up
-cd /c/Users/Matous    # Go to an absolute path
+cd /c/Users/JohnDoe    # Go to an absolute path
 cd ~                  # Go to home directory
 ```
 
@@ -109,7 +109,7 @@ Moves or renames files and folders.
 
 ```bash
 mv oldname.txt newname.txt         # Rename a file
-mv file.txt /c/Users/Matous/Desktop # Move file to another location
+mv file.txt /c/Users/JohnDoe/Desktop # Move file to another location
 ```
 
 ---
@@ -342,3 +342,4 @@ exit
 | `history` | View command history |
 
 ---
+
