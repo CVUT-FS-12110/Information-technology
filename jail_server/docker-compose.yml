@@ -1,9 +1,16 @@
 
 services:
   ssh_lab:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        TEACHER_PASSWORD: ${TEACHER_PASSWORD}
+        STUDENT_PASSWORD: ${STUDENT_PASSWORD}
     container_name: ssh_lab
     ports:
-      - "2222:22"  # maps container SSH to host port 2222
+      - "2222:22"  # Maps container SSH port 22 to host port 2222
     volumes:
       - ./runner.sh:/home/student/runner.sh:ro
+    env_file:
+      - .env
