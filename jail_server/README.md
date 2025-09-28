@@ -1,4 +1,4 @@
-# Server for testing
+# Server for SSH connection testing
 
 Build and run the container:
 
@@ -12,7 +12,7 @@ Connect as student:
 
 Run script:
 
-> runner <name>
+> runner <YourName>
 
 ## Teacher workflow
 
