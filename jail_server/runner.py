@@ -2,6 +2,7 @@
 import sys
 import datetime
 import os
+import uuid
 
 # Ensure exactly one argument is provided
 if len(sys.argv) != 2:
@@ -13,11 +14,14 @@ name = sys.argv[1]
 # Log file inside student's home folder
 log_file = os.path.expanduser("~/student_runs.log")
 
+personal_uuid = uuid.uuid4()
+
 # Print a greeting
 print(f"Hello, {name}! Running your exercise...")
+print(f"Save this UUID for later: {personal_uuid}")
 
 # Append timestamp and name to log file
 with open(log_file, "a") as f:
-    f.write(f"{name} ran the script at {datetime.datetime.now()}\n")
+    f.write(f"{name} ran the script at {datetime.datetime.now()} with UUID: {personal_uuid}\n")
 
 print(f"Run logged in {log_file}")
