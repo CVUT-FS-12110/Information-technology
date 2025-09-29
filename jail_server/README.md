@@ -30,3 +30,7 @@ Run teacher script:
 SSH error after rebuild - remove the known key:
 
 > ssh-keygen -R "[localhost]:2222"
+
+Or in some cases docker compose trow: "configuration problem":
+
+> sudo docker-compose down -v
