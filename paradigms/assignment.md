@@ -15,3 +15,8 @@
 
 4. Create an **activity diagram** of the [program 2](main_functional.py) **processing pipeline**.  
    - Show the overall decision flow between adding items and checking out.
+
+## Submission
+
+- Submit a single PDF file containing all 4 diagrams.
+- Hint: use plantuml or draw.io
