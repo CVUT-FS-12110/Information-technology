@@ -5,6 +5,7 @@ Course Information technology
 
 - [Bash introduction](bash/basics.md)
 - [SSH and SCP introduction](bash/ssh.md)
+- [Python introduction workbook](python/python_workbook.md)
 
 ## Tools
 
