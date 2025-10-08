@@ -99,6 +99,36 @@ Remainder: 1
 
 ---
 
+### Simple Assignment Operators
+
+| Operator | Example   | Same as      | Description                            |
+| -------- | --------- | ------------ | -------------------------------------- |
+| `=`      | `x = 5`   | `x = 5`      | Assigns value 5 to variable `x`        |
+| `+=`     | `x += 3`  | `x = x + 3`  | Adds and assigns the result            |
+| `-=`     | `x -= 2`  | `x = x - 2`  | Subtracts and assigns the result       |
+| `*=`     | `x *= 4`  | `x = x * 4`  | Multiplies and assigns the result      |
+| `/=`     | `x /= 2`  | `x = x / 2`  | Divides and assigns the result (float) |
+| `%=`     | `x %= 3`  | `x = x % 3`  | Modulus (remainder) and assign         |
+| `//=`    | `x //= 2` | `x = x // 2` | Floor division and assign (integer)    |
+| `**=`    | `x **= 2` | `x = x ** 2` | Exponentiation and assign              |
+| `&=`     | `x &= 3`  | `x = x & 3`  | Bitwise AND and assign                 |
+| `\|=`    | `x \|= 2` | `x = x \| 2` | Bitwise OR and assign                  |
+| `^=`     | `x ^= 2`  | `x = x ^ 2`  | Bitwise XOR and assign                 |
+| `>>=`    | `x >>= 1` | `x = x >> 1` | Bitwise right shift and assign         |
+| `<<=`    | `x <<= 1` | `x = x << 1` | Bitwise left shift and assign          |
+
+```python
+count = 0
+count += 1
+print("Result:", count)
+```
+Example output:
+```
+Result: 1
+```
+
+---
+
 ## **2. Collections in Python**
 
 Collections let you store multiple values in a single variable.
@@ -121,10 +151,15 @@ fruits = ["apple", "banana", "cherry"]
 ```
 **Accessing elements:**
 ```python
+fruits = ["apple", "banana", "cherry"]
+
 print(fruits[0])   # first item
 print(fruits[2])   # third item
 print(fruits[-1])  # last item
 ```
+
+Note: Comments starts with a `#`, and Python will ignore them.
+
 Example output:
 ```
 apple
@@ -133,6 +168,8 @@ cherry
 ```
 **Modifying a list:**
 ```python
+fruits = ["apple", "banana", "cherry"]
+
 fruits.append("orange")  # add
 fruits[1] = "kiwi"       # change
 fruits.remove("apple")   # remove
@@ -188,12 +225,13 @@ You can also perform set operations:
 ```python
 a = {1, 2, 3}
 b = {3, 4, 5}
-print(a.union(b))       # combine sets
+print(a.union(b))        # combine sets
 print(a.intersection(b)) # common elements
 ```
 Example output:
 ```
-{1, 2, 3, 4}
+{1, 2, 3, 4, 5}
+{3}
 ```
 
 ---
@@ -203,8 +241,12 @@ Example output:
 A dictionary stores data in key–value pairs.
 
 ```python
-person = {"name": "Alice", "age": 25, "city": "Prague"}
+person = {"name": "Bob", "age": 27, "city": "Prague"}
 print(person["name"])  # access value by key
+```
+Example output:
+```
+Bob
 ```
 
 **Add or modify values:**
@@ -213,6 +255,10 @@ print(person["name"])  # access value by key
 person["age"] = 26
 person["job"] = "Engineer"
 print(person)
+```
+Example output:
+```
+{'name': 'Bob', 'age': 26, 'city': 'Prague', 'job': 'Engineer'}
 ```
 
 ---
@@ -311,6 +357,8 @@ Loops let you repeat code multiple times without writing it again and again.
 
 They are useful when you need to perform a task many times or go through a collection of data.
 
+---
+
 ### `while` Loop
 A `while` loop repeats as long as its condition is **True**.
 
@@ -330,9 +378,7 @@ Count: 5
 ```
 Be careful with while loops - if the condition never becomes `False`, you’ll create an infinite loop.
 
----
-
-**Summing Numbers with a `while` Loop**
+**Summing Numbers with a `while` Loop:**
 
 ```python
 total = 0
@@ -344,16 +390,13 @@ while number <= 5:
 
 print("Total:", total)
 ```
-Inside the loop, count += 1 means: add 1 to count
 
 Example output:
 ```
 Total: 15
 ```
 
----
-
-**Example** – Simple Guessing Game
+**Try it for yourself** – Simple Guessing Game:
 
 ```python
 secret = 7
@@ -373,7 +416,7 @@ print("You got it!")
 
 You can use it in a `for` loop to control how many times the loop runs.
 
-Basic forms of `range()`:
+**Basic forms of `range()`:**
 
 | Form                       | Meaning                                              | Example           | Generated Numbers |
 | -------------------------- | ---------------------------------------------------- | ----------------- | ----------------- |
@@ -398,27 +441,9 @@ Iteration: 3
 Iteration: 4
 ```
 
----
+**Looping Through a String:**
 
-**Example** – Printing Even Numbers
-
-```python
-for number in range(2, 11, 2):
-    print(number)
-```
-Example output:
-```
-2
-4
-6
-8
-10
-```
-
----
-
-**Looping Through a String**
-
+You can loop through each character in a string - the loop variable will take one character at a time.
 ```python
 word = "Python"
 for letter in word:
@@ -434,16 +459,17 @@ o
 n
 ```
 
----
+**Looping Through a List:**
 
-**Looping Through a List**
-
+You can also loop through each element in a list - great for processing items one by one.
 ```python
 fruits = ["apple", "banana", "cherry"]
 
 for fruit in fruits:
     print("I like", fruit)
 ```
+Each time the loop runs, the variable fruit stores one list element.
+
 Example output:
 ```
 I like apple
@@ -451,12 +477,134 @@ I like banana
 I like cherry
 ```
 
+**Try it for yourself** – Printing Even Numbers:
+
+```python
+for number in range(2, 11, 2):
+    print(number)
+```
+Here we used `range()` function to control how counting works.
+
 ---
 
 ## **5. Practice Exercises**
 
-
+**A.** Write a program that checks whether a number is even or odd
 
 ---
 
+**B.** Ask the user to input their age
+- If age < 13 → print “Child”
+- If 13–19 → print “Teenager”
+- Otherwise → print “Adult”
 
+---
+
+**C.** Ask the user to enter a number
+- If it’s positive → print “Positive”
+- If it’s zero → print “Zero”
+- If it’s negative → print “Negative”
+
+---
+
+**D.** Create a simple grading system
+```python
+score = int(input("Enter your score: "))
+# If score >= 90: print "A"
+# If 80–89: print "B"
+# If 70–79: print "C"
+# If 60–69: print "D"
+# Otherwise: print "F"
+```
+
+---
+
+**E.** Count from 1 to 10 using a `while` loop
+
+---
+
+**F.** Print all even numbers from 1 to 20 using a `for` loop
+
+---
+
+**G.** Calculate the factorial of a number using a `while` loop
+
+Hint: Multiply numbers from 1 up to `n` to get the factorial.
+
+Example: 5! = 1 × 2 × 3 × 4 × 5 = 120
+```python
+n = int(input("Enter the number from which the factorial will be calculated: "))
+```
+
+---
+
+**H.** Multiplication table - ask for a number and print its table up to 10
+
+Example for 3:
+```python
+3 x 1 = 3
+3 x 2 = 6
+...
+3 x 10 = 30
+```
+
+---
+
+**I.** Draw a triangle using `*` symbols
+
+Task: Print a growing triangle pattern using stars.
+```python
+*
+**
+***
+****
+*****
+```
+
+---
+
+**J.** Even or Odd (Using a Loop + Condition)
+
+Task: Write a program that prints whether each number between 1 and 10 is even or odd.
+
+Hint: Use `for number in range(1, 11)` and the modulus operator `%`.
+
+---
+
+**K.** Sum of Positive Numbers (While Loop + Condition)
+
+Task: Ask the user to enter numbers until they type 0.
+Then print the sum of all positive numbers they entered.
+
+Hint: Use a `while` loop with `input()` and convert to `int`.
+
+---
+
+**L.** Favorite Fruits (List + Loop + Condition)
+
+Task: Create a list of your favorite fruits.
+Ask the user to input a fruit name and tell them whether it’s in your list.
+
+---
+
+**M.** Word Counter (String + Loop + Dictionary)
+
+Task: Count how many times each word appears in a short sentence.
+
+Hint: Split the sentence into words with `.split()` and use a dictionary to count.
+
+---
+
+**N.** Multiplication Table (Nested Loop)
+
+Task: Print a multiplication table (1–10) neatly formatted.
+
+Output should look like this:
+```
+1	2	3	4	5	6	7	8	9	10
+2	4	6	8	10	12	14	16	18	20
+...
+10	20	30	40	50	60	70	80	90	100
+```
+
+---
