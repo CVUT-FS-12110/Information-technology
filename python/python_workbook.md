@@ -14,7 +14,8 @@ Prints the specified message to the screen.
 print("Hello World!")
 ```
 Always put text inside quotation marks (`" "` or `' '`) — otherwise, Python thinks it’s a variable name, not text.
-**Example output:**
+
+Example output:
 ```
 Hello World!
 ```
@@ -23,6 +24,7 @@ Hello World!
 
 ### `Variables` – Storing Information
 A variable is a name used to store data so you can reuse it later.
+
 Think of it as a labeled box where you keep a value.
 ```python
 name = "Bob"
@@ -31,7 +33,8 @@ print(name)
 print(age)
 ```
 Variable names cannot have spaces and must start with a letter or underscore.
-**Example output:**
+
+Example output:
 ```
 Bob
 27
@@ -56,13 +59,14 @@ is_student = True # boolean
 
 ### `input()` – Getting User Input
 You can ask the user for input using the `input()` function.
+
 Everything entered by the user is read as text (a string).
 
 ```python
 name = input("Enter your name: ")
 print("Hello,", name, "!")
 ```
-**Example output:**
+Example output:
 ```
 Enter your name: Bob
 Hello, Bob !
@@ -87,13 +91,135 @@ b = 3
 print("Sum:", a + b)
 print("Remainder:", a % b)
 ```
+Example output:
+```
+Sum: 13
+Remainder: 1
+```
 
 ---
 
-## **2. Conditional Statements (if/elif/else)**
+## **2. Collections in Python**
 
-Conditional statements let your program make decisions — they control what happens based on certain conditions.
+Collections let you store multiple values in a single variable.
 
+The four main built-in types in Python are:
+| Type           | Ordered             | Changeable | Allows Duplicates     | Syntax         |
+| -------------- | ------------------- | ---------- | --------------------- | -------------- |
+| **List**       | ✅ Yes               | ✅ Yes      | ✅ Yes                 | `[ ]`          |
+| **Tuple**      | ✅ Yes               | ❌ No       | ✅ Yes                 | `( )`          |
+| **Set**        | ❌ No                | ✅ Yes      | ❌ No                  | `{ }`          |
+| **Dictionary** | ✅ Yes (Python 3.7+) | ✅ Yes      | ❌ Keys must be unique | `{key: value}` |
+
+---
+
+### **Lists**
+A list stores multiple items in a specific order and can be changed.
+
+```python
+fruits = ["apple", "banana", "cherry"]
+```
+**Accessing elements:**
+```python
+print(fruits[0])   # first item
+print(fruits[2])   # third item
+print(fruits[-1])  # last item
+```
+Example output:
+```
+apple
+cherry
+cherry
+```
+**Modifying a list:**
+```python
+fruits.append("orange")  # add
+fruits[1] = "kiwi"       # change
+fruits.remove("apple")   # remove
+print(fruits)
+```
+Example output:
+```
+['kiwi', 'cherry', 'orange']
+```
+**Common List functions:**
+| Function      | Description        | Example          | Result    |
+| ------------- | ------------------ | ---------------- | --------- |
+| `len(list)`   | Number of items    | `len(fruits)`    | 3         |
+| `sum(list)`   | Sum of all numbers | `sum([2, 4, 6])` | 12        |
+| `max(list)`   | Largest value      | `max([3, 7, 1])` | 7         |
+| `min(list)`   | Smallest value     | `min([3, 7, 1])` | 1         |
+| `list.sort()` | Sorts in order     | `[3,1,2].sort()` | `[1,2,3]` |
+
+---
+
+### **Tuples**
+
+A tuple is like a list, but it cannot be changed (it’s immutable).
+
+```python
+colors = ("red", "green", "blue")
+print(colors[0])
+```
+If you try to modify it:
+```python
+colors[0] = "yellow"
+```
+You’ll get an error, because tuples can’t be changed.
+
+Use tuples when your data shouldn’t change (like days of the week).
+
+---
+
+### **Sets**
+
+A set is an unordered collection of unique items.
+```python
+numbers = {1, 2, 3, 3, 4}
+print(numbers)
+```
+Example output:
+```
+{1, 2, 3, 4}
+```
+Notice: duplicates are removed automatically.
+
+You can also perform set operations:
+```python
+a = {1, 2, 3}
+b = {3, 4, 5}
+print(a.union(b))       # combine sets
+print(a.intersection(b)) # common elements
+```
+Example output:
+```
+{1, 2, 3, 4}
+```
+
+---
+
+### **Dictionaries**
+
+A dictionary stores data in key–value pairs.
+
+```python
+person = {"name": "Alice", "age": 25, "city": "Prague"}
+print(person["name"])  # access value by key
+```
+
+**Add or modify values:**
+
+```python
+person["age"] = 26
+person["job"] = "Engineer"
+print(person)
+```
+
+---
+
+## **3. Conditional Statements (if/elif/else)**
+
+Conditional statements let your program make decisions - they control what happens based on certain conditions.
 
 ---
 
@@ -106,7 +232,8 @@ if x > 5:
 ```
 Indentation (spaces before the line) is very important in Python.
 Use 4 spaces (or press Tab once) to indent code inside an if block.
-**Example output:**
+
+Example output:
 ```
 x is greater than 5
 ```
@@ -123,7 +250,7 @@ else:
     print("Negative number or zero")
 ```
 
-**Example output:**
+Example output:
 ```
 Negative number or zero
 ```
@@ -143,7 +270,7 @@ else:
     print("It's cold outside.")
 ```
 
-**Example output:**
+Example output:
 ```
 It's warm outside.
 ```
@@ -172,21 +299,16 @@ if age >= 18 and age < 65:
     print("You are an adult.")
 ```
 
-**Example output:**
+Example output:
 ```
 You are an adult.
 ```
 
 ---
 
-### Practice Exercises
-
-#### A. Write a program that checks whether a number is even or odd.
-
----
-
-## **3. Loops**
+## **4. Loops**
 Loops let you repeat code multiple times without writing it again and again.
+
 They are useful when you need to perform a task many times or go through a collection of data.
 
 ### `while` Loop
@@ -198,7 +320,7 @@ while count <= 5:
     print("Count:", count)
     count += 1
 ```
-**Example output:**
+Example output:
 ```
 Count: 1
 Count: 2
@@ -206,11 +328,11 @@ Count: 3
 Count: 4
 Count: 5
 ```
-Be careful with while loops — if the condition never becomes `False`, you’ll create an infinite loop.
+Be careful with while loops - if the condition never becomes `False`, you’ll create an infinite loop.
 
 ---
 
-**Example** – Summing Numbers with a `while` Loop
+**Summing Numbers with a `while` Loop**
 
 ```python
 total = 0
@@ -224,7 +346,7 @@ print("Total:", total)
 ```
 Inside the loop, count += 1 means: add 1 to count
 
-**Example output:**
+Example output:
 ```
 Total: 15
 ```
@@ -248,6 +370,7 @@ print("You got it!")
 
 ### `range()` Function
 `range()` is a built-in Python function that generates a sequence of numbers.
+
 You can use it in a `for` loop to control how many times the loop runs.
 
 Basic forms of `range()`:
@@ -261,12 +384,12 @@ Basic forms of `range()`:
 ---
 
 ### `for` – Loop
-A `for` loop is used to iterate over a sequence — like a list, string, or range of numbers.
+A `for` loop is used to iterate over a sequence - like a list, string, or range of numbers.
 ```python
 for i in range(5):
     print("Iteration:", i)
 ```
-**Example output:**
+Example output:
 ```
 Iteration: 0
 Iteration: 1
@@ -283,7 +406,7 @@ Iteration: 4
 for number in range(2, 11, 2):
     print(number)
 ```
-**Example output:**
+Example output:
 ```
 2
 4
@@ -294,14 +417,14 @@ for number in range(2, 11, 2):
 
 ---
 
-**Example** – Looping Through a String
+**Looping Through a String**
 
 ```python
 word = "Python"
 for letter in word:
     print(letter)
 ```
-**Example output:**
+Example output:
 ```
 P
 y
@@ -313,9 +436,27 @@ n
 
 ---
 
-## **4. Combined Challenges (Harder Tasks)**
+**Looping Through a List**
+
+```python
+fruits = ["apple", "banana", "cherry"]
+
+for fruit in fruits:
+    print("I like", fruit)
+```
+Example output:
+```
+I like apple
+I like banana
+I like cherry
+```
+
+---
+
+## **5. Practice Exercises**
 
 
 
 ---
+
 
