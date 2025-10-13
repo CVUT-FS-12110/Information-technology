@@ -1,16 +1,14 @@
 # Python Workbook Part 2: Functions, Files, and OOP
 
+This notebook provides an overview of key Python programming concepts - including functions, file handling, and object-oriented programming.
 
-🐍 In this part, we’ll move beyond the basics and learn how to make your code reusable, organized, and efficient.
-You’ll learn how to:
+🐍 You’ll learn how to:
 
-Write and use functions to avoid repeating code
+- Write and use **functions** to avoid repeating code
 
-Work with strings, files, and errors more effectively
+- Work with **strings, files, and errors** more effectively
 
-Use modules and Object-Oriented Programming (OOP) to structure larger programs
-
-By the end of this guide, you’ll be able to design small, functional Python projects with confidence — and understand how professionals structure real programs.
+- Use modules and **Object-Oriented Programming** (OOP) to structure larger programs
 
 ---
 
@@ -44,8 +42,42 @@ Hello, Python learner!
 
 ### Functions with Parameters
 
+Functions can take **parameters** - values you pass in when calling the function.
 
+```python
+def greet_user(name):
+    print("Hello,", name + "!")
+```
+```python
+greet_user("Bob")
+```
+Here, `"Bob"` is an argument passed into the function parameter `name`.
 
-
+Example output:
+```
+Hello, Bob!
+```
 ---
+
+### Functions That Return a Value
+
+Functions can **return a result** instead of printing directly.
+
+```python
+def add(a, b):
+    return a + b
+```
+```python
+result = add(3, 5)
+print("Sum:", result)
+```
+The `return` statement sends a value back to the place where the function was called.
+
+Example output:
+```
+Sum: 8
+```
+---
+---
+
 
