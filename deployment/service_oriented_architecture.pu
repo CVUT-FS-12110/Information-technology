@@ -1,0 +1,32 @@
+@startuml
+
+skinparam componentStyle rectangle
+skinparam rectangle {
+  BackgroundColor<<UI>> #D5E8D4
+  BackgroundColor<<Bus>> #DAE8FC
+  BackgroundColor<<Service>> #DAE8FC
+  BackgroundColor<<DB>> #FFF2CC
+  BorderColor black
+}
+
+component "UI" <<UI>> as UI
+component "Enterprise Svc Bus" <<Bus>> as BUS
+
+component "Service A" <<Service>> as S1
+component "Service B" <<Service>> as S2
+component "Service C" <<Service>> as S3
+
+database "DB A" <<DB>> as DBA
+database "DB B" <<DB>> as DBB
+database "DB C" <<DB>> as DBC
+
+UI --> BUS
+BUS --> S1
+BUS --> S2
+BUS --> S3
+
+S1 --> DBA
+S2 --> DBB
+S3 --> DBC
+
+@enduml

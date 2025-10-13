@@ -1,0 +1,21 @@
+@startuml
+
+skinparam componentStyle rectangle
+skinparam rectangle {
+  BackgroundColor<<UI>> #D5E8D4
+  BackgroundColor<<Business>> #DAE8FC
+  BackgroundColor<<Data>> #DAE8FC
+  BackgroundColor<<DB>> #FFF2CC
+  BorderColor black
+}
+
+component "UI" <<UI>> as UI
+component "Business Logic" <<Business>> as BL
+component "Data Interface" <<Data>> as DI
+database "DB" <<DB>> as DB
+
+UI --> BL
+BL --> DI
+DI --> DB
+
+@enduml

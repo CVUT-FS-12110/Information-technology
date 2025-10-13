@@ -1,0 +1,37 @@
+@startuml
+
+skinparam componentStyle rectangle
+skinparam defaultFontName Arial
+
+' UI
+component "UI" as UI #D5E8D4
+
+' Microservices
+component "MS A" as MSA #DAE8FC
+component "MS B" as MSB #DAE8FC
+component "MS C" as MSC #DAE8FC
+component "MS D" as MSD #DAE8FC
+component "MS E" as MSE #DAE8FC
+
+' Databases
+database "DB A" as DBA #FFF2CC
+database "DB B" as DBB #FFF2CC
+database "DB C" as DBC #FFF2CC
+database "DB D" as DBD #FFF2CC
+database "DB E" as DBE #FFF2CC
+
+' Connections
+UI --> MSA
+UI --> MSB
+UI --> MSC
+
+MSC --> MSD
+MSC --> MSE
+
+MSA --> DBA
+MSB --> DBB
+MSC --> DBC
+MSD --> DBD
+MSE --> DBE
+
+@enduml
