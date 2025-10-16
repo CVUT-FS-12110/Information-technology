@@ -146,7 +146,7 @@ Outside function: 10
 
 ---
 
-## **String Indexing and Slicing**
+## **2. Working with Strings**
 
 Strings are sequences of characters used to store and manipulate text.
 
@@ -157,7 +157,7 @@ text = "Hello, Python!"
 ```
 ---
 
-### Local and Global Variables
+### String Indexing and Slicing
 
 You can access parts of a string using **indexes**.
 
@@ -249,7 +249,7 @@ String methods help you easily manipulate text.
 
 ---
 
-## 4. Working with Files
+## 3. Working with Files
 
 Python allows you to read from and write to files - so your programs can **save data, process documents**, or **store user information** permanently.
 
@@ -319,6 +319,21 @@ with open("example.txt", "r") as file:
     for line in file:
         print(line.strip())  # strip() removes \n
 ```
+
+---
+
+### Summary - File Handling in Python
+
+| Mode           | Description     | Example                  | Effect                           |
+| -------------- | --------------- | ------------------------ | -------------------------------- |
+| `"r"`          | Read            | `open("file.txt", "r")`  | Opens existing file for reading  |
+| `"w"`          | Write           | `open("file.txt", "w")`  | Overwrites or creates new file   |
+| `"a"`          | Append          | `open("file.txt", "a")`  | Adds content to end of file      |
+| `"r+"`         | Read and write  | `open("file.txt", "r+")` | Updates content without deleting |
+| `.read()`      | Reads full file | `file.read()`            | Returns text as one string       |
+| `.readline()`  | Reads one line  | `file.readline()`        | Returns next line                |
+| `.readlines()` | Reads all lines | `file.readlines()`       | Returns list of lines            |
+| `.write()`     | Writes text     | `file.write("Hi!")`      | Adds text to file                |
 
 ---
 
@@ -543,3 +558,108 @@ Golden Retriever
 
 ---
 
+### Inheritance
+
+A class can inherit from another class - it means the child class can use all attributes and methods of the parent.
+
+```python
+class Animal:
+    def speak(self):
+        print("Some sound")
+
+class Cat(Animal):
+    def speak(self):
+        print("Meow!")
+
+cat = Cat()
+cat.speak()
+```
+The child class (`Cat`) can override methods from the parent class (`Animal`).
+
+Example output:
+```
+Meow!
+```
+---
+
+### Summary - Object-Oriented Programming
+
+| Concept         | Description                 | Example              |
+| --------------- | --------------------------- | -------------------- |
+| **Class**       | Blueprint for objects       | `class Car:`         |
+| **Object**      | Instance of a class         | `my_car = Car()`     |
+| **Attribute**   | Variable in a class         | `self.name`          |
+| **Method**      | Function in a class         | `def drive(self):`   |
+| **Constructor** | Initializes an object       | `__init__()`         |
+| **Inheritance** | Child class inherits parent | `class Dog(Animal):` |
+
+---
+
+## **6. Practice Exercises**
+
+**A. Functions and Logic**
+
+Create a function named `is_even(number)` that returns `True` if the number is even, and `False` if it’s odd.
+Then, call it with a few different numbers and print the results.
+
+---
+
+**B. Functions with Return Values**
+
+Write a function called `convert_to_celsius(fahrenheit)` that converts a Fahrenheit temperature to Celsius using the formula:
+
+```python
+C = (F - 32) * 5/9
+```
+
+Expected output is:
+```
+100°F = X°C
+```
+
+---
+
+**C. String Practice**
+
+Ask the user to enter a word, then:
+- Print it in uppercase
+- Print how many vowels (a, e, i, o, u) it contains
+
+---
+
+---
+
+**D. Working with Lists**
+
+Create a list of 5 numbers.
+Write a function `average(numbers)` that returns the average value of the list.
+
+---
+
+**E. Files – Reading and Writing**
+
+Write 3 lines of text into a file called `notes.txt`.
+
+Read the content and print it to the screen.
+
+---
+
+**F. OOP - Simple Class**
+
+Create a class `Rectangle` with:
+
+- Attributes: `width` and `height`
+
+- Methods: `area()` and `perimeter()`
+
+Then create one object and print both results.
+
+---
+
+**G. OOP - Inheritance**
+
+Create a parent class `Animal` with a method `speak()` that prints “Some sound”.
+Then create a child class `Dog` that overrides `speak()` and prints “Woof!”.
+Finally, create a `Dog` object and call the method.
+
+---
