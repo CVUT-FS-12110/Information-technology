@@ -138,8 +138,8 @@ Outside function: 10
 | ----------------- | --------------------------- | ----------------------------- |
 | Define a function | Create reusable code block  | `def greet():`                |
 | Call a function   | Run the code inside it      | `greet()`                     |
-| Parameter         | Value passed into function  | `def add(a, b):`              |
-| Return value      | Send result back            | `return a + b`                |
+| Parameter         | Value passed into function  | `def add(a):`                 |
+| Return value      | Send result back            | `return a + 1`                |
 | Default value     | Optional parameter value    | `def greet(name="friend"):`   |
 | Local variable    | Exists only inside function | `x` inside `def` block        |
 | Global variable   | Accessible everywhere       | Declared outside any function |
@@ -185,7 +185,7 @@ You can join strings using `+` and repeat them using `*`.
 
 ```python
 greeting = "Hello"
-name = "Alice"
+name = "Bob"
 
 print(greeting + " " + name)
 print("Hi! " * 3)
@@ -193,7 +193,7 @@ print("Hi! " * 3)
 
 Example output:
 ```
-Hello Alice
+Hello Bob
 Hi! Hi! Hi!
 ```
 ---
@@ -378,7 +378,7 @@ Please enter a valid number.
 ### `else` and `finally` Clauses
 
 - `else` runs if no error happens.
-- `finally` runs always — even if there was an error (useful for cleanup).
+- `finally` runs always - even if there was an error (useful for cleanup).
 
 ```python
 try:
@@ -542,3 +542,4 @@ Golden Retriever
 ```
 
 ---
+
