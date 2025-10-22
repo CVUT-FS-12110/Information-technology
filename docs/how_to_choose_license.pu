@@ -1,0 +1,19 @@
+@startuml
+|User|
+start
+
+if (Open source?) then (yes)
+  if (Require derivatives to stay open?) then (yes)
+    :Choose Copyleft;
+  else (no)
+    if (Want maximum reuse, including commercial?) then (yes)
+      :Choose Permissive;
+    else (no)
+      :Choose Public Domain / No Copyright;
+    endif
+  endif
+else (no)
+  :Choose Proprietary / Commercial;
+endif
+stop
+@enduml
