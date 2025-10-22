@@ -1,0 +1,29 @@
+@startuml
+
+skinparam componentStyle rectangle
+skinparam rectangle {
+  BorderColor black
+}
+
+' Producers
+component "Producer 1" <<Business>> as P1 #FDEBD0
+component "Producer 2" <<Business>> as P2 #FDEBD0
+
+' Event Broker (middleware / message bus)
+component "Event broker" <<Data>> as BROKER #F2F2F2
+
+' Consumers
+component "Consumer 1" <<Business>> as C1 #FEF5E7
+component "Consumer 2" <<Business>> as C2 #FEF5E7
+component "Consumer 3" <<Business>> as C3 #FEF5E7
+
+' Connections
+P1 -[#green]-> BROKER : A
+P2 -[#blue]-> BROKER : B
+
+BROKER -[#green]-> C1 : A
+BROKER -[#green]-> C2 : A
+BROKER -[#blue]-> C2 : B
+BROKER -[#blue]-> C3 : B
+
+@enduml

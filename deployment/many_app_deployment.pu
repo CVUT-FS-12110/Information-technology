@@ -1,0 +1,16 @@
+@startuml
+
+skinparam rectangle {
+  BorderColor black
+}
+
+
+node "Hardware" as HW2 #D9CCE3 {
+    node "Operating System" as OS2 #FEF5E7 {
+        artifact "App 1" as APP2 #D5E8D4
+        artifact "App 2" as APP3 #D5E8D4
+        artifact "App 3" as APP4 #D5E8D4
+    }
+}
+
+@enduml
