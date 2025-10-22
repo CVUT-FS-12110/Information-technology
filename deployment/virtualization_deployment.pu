@@ -1,6 +1,5 @@
 @startuml
 
-
 skinparam node {
   BorderColor black
   BackgroundColor white
@@ -13,24 +12,29 @@ skinparam artifact {
 node "Hardware" as HW #D9CCE3 {
     ' Host OS
     node "Operating System" as HostOS #FEF5E7 {
-        ' Hypervisor Layer
-        node "Hypervisor" as HYP #D6EAF8 {
-            ' VM1
-            node "Guest OS 1" as GOS1 #E8DAEF {
+        ' Container Engine
+        node "Container Engine" as CE #D6EAF8 {
+
+            ' Container 1
+            node "Container 1" as C1 #E8DAEF {
                 artifact "Bins/Libs" as LIBS1 #D5E8D4
                 artifact "App 1" as APP1 #D5E8D4
             }
-            ' VM2
-            node "Guest OS 2" as GOS2 #E8DAEF {
+
+            ' Container 2
+            node "Container 2" as C2 #E8DAEF {
                 artifact "Bins/Libs" as LIBS2 #D5E8D4
                 artifact "App 2" as APP2 #D5E8D4
             }
-            ' VM3
-            node "Guest OS 3" as GOS3 #E8DAEF {
+
+            ' Container 3
+            node "Container 3" as C3 #E8DAEF {
                 artifact "Bins/Libs" as LIBS3 #D5E8D4
                 artifact "App 3" as APP3 #D5E8D4
             }
+
         }
     }
 }
+
 @enduml

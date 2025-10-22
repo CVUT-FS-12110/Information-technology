@@ -1,0 +1,34 @@
+@startuml
+skinparam rectangle {
+  BackgroundColor<<HW>> #D8C7E6
+  BackgroundColor<<OS>> #FFF2CC
+  BackgroundColor<<Engine>> #DAE8FC
+  BackgroundColor<<Container>> #FFFFFF
+  BackgroundColor<<App>> #D5E8D4
+  BackgroundColor<<Libs>> #DAE8FC
+  BorderColor black
+}
+
+node "Hardware" <<HW>> {
+  node "Host Operating System" <<OS>> {
+    node "Container Engine" <<Engine>> {
+
+      node "Container 1" <<Container>> {
+        component "App" <<App>>
+        component "Bins/Libs" <<Libs>>
+      }
+
+      node "Container 2" <<Container>> {
+        component "App" <<App>>
+        component "Bins/Libs" <<Libs>>
+      }
+
+      node "Container 3" <<Container>> {
+        component "App" <<App>>
+        component "Bins/Libs" <<Libs>>
+      }
+    }
+  }
+}
+
+@enduml
