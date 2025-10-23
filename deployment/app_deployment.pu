@@ -1,0 +1,77 @@
+@startuml
+
+skinparam defaultFontSize 20
+
+skinparam node {
+  BackgroundColor #F9F9F9
+  BorderColor #A0A0A0
+  RoundCorner 10
+}
+skinparam artifact {
+  BackgroundColor #D5E8D4
+  BorderColor black
+}
+skinparam cloud {
+  BackgroundColor #D6EAF8
+  BorderColor black
+}
+
+skinparam rectangle {
+  BorderColor #999999
+  FontStyle bold
+  RoundCorner 15
+}
+
+' Force horizontal layout
+left to right direction
+
+rectangle "Local Execution" as Local {
+    node "Programmer's PC" as PC1 {
+        artifact "App" as App1
+    }
+
+    node "User's PC" as PC2 {
+        artifact "App" as App2
+    }
+
+    App1 --> App2
+}
+
+rectangle "Client-Server" as CS {
+    node "Programmer PC" as PC3
+    node "Server" as Server {
+        artifact "App" as App3
+    }
+    node "User PC" as PC4
+
+    PC3 --> App3
+    App3 --> PC4
+}
+
+rectangle "Virtualized Server" as VM {
+    node "Programmer PC" as PC5
+    node "Physical Server" as PServer {
+        node "VM" as VMNode #D6EAF8 {
+            artifact "App" as App4
+        }
+    }
+    node "User PC" as PC6
+
+    PC5 --> App4
+    App4 --> PC6
+}
+
+rectangle "Cloud Deployment" as CloudD {
+    node "Programmer PC" as PC7
+    cloud "Cloud" as Cloud #D6EAF8 {
+        node "VM" as VMCloud #E8DAEF {
+            artifact "App" as App5
+        }
+    }
+    node "User PC" as PC8
+
+    PC7 --> App5
+    App5 --> PC8
+}
+
+@enduml
