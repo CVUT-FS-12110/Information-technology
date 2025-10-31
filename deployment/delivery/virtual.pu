@@ -1,0 +1,44 @@
+@startuml
+
+skinparam defaultFontSize 20
+
+skinparam node {
+  BackgroundColor #F9F9F9
+  BorderColor #A0A0A0
+  RoundCorner 10
+}
+skinparam artifact {
+  BackgroundColor #D5E8D4
+  BorderColor black
+}
+skinparam cloud {
+  BackgroundColor #D6EAF8
+  BorderColor black
+}
+
+skinparam rectangle {
+  BorderColor #999999
+  FontStyle bold
+  RoundCorner 15
+}
+
+' Force horizontal layout
+left to right direction
+
+
+rectangle "Virtualized Server" as VM {
+    node "Programmer PC" as PC5
+    node "Physical Server" as PServer {
+        node "VM" as VMNode #D6EAF8 {
+            artifact "App" as App4
+        }
+    }
+    node "User PC" as PC6
+
+    PC5 --> App4
+    App4 --> PC6
+}
+
+
+
+@enduml

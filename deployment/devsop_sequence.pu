@@ -1,0 +1,37 @@
+@startuml
+title Simplified GitOps CI/CD Workflow
+
+skinparam participant {
+  BackgroundColor #F9F9F9
+  BorderColor #A0A0A0
+  FontStyle bold
+}
+skinparam sequence {
+  ArrowColor #444444
+  ArrowThickness 1.2
+  LifeLineBorderColor #A0A0A0
+  LifeLineBackgroundColor #FFFFFF
+  ParticipantPadding 20
+}
+
+actor Developer as Dev #ADD8E6
+participant "Git Repository" as Git #FDF2E9
+participant "CI Pipeline" as CI #E8DAEF
+participant "Image Registry" as Registry #D6EAF8
+participant "GitOps Engine" as GitOps #F9E79F
+participant "Kubernetes Cluster" as Cluster #D5E8D4
+
+== Build & Publish ==
+Dev -> Git : Push source code
+Git -> CI : Trigger pipeline (webhook)
+CI -> Registry : Build & push container image
+CI -> Git : Update manifests (new image tag)
+
+== Deploy ==
+Git -> GitOps : Notify or poll for changes
+GitOps -> Git : Pull updated manifests
+GitOps -> Registry : Pull image
+GitOps -> Cluster : Apply manifests (deploy app)
+GitOps -> Git : Update deployment status (synced)
+
+@enduml

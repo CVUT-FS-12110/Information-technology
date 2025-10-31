@@ -1,0 +1,34 @@
+@startuml
+
+skinparam participant {
+  BackgroundColor #F9F9F9
+  BorderColor #A0A0A0
+  FontStyle bold
+}
+skinparam sequence {
+  ArrowColor #444444
+  ArrowThickness 1.2
+  LifeLineBorderColor #A0A0A0
+  LifeLineBackgroundColor #FFFFFF
+  ParticipantPadding 20
+}
+skinparam box {
+  BorderColor #999999
+  BackgroundColor #FAFAFA
+  FontStyle bold
+}
+
+actor Developer as Dev1 #ADD8E6
+participant "Git Repository" as Git1 #FDF2E9
+participant "CI/CD Pipeline" as CICD #E8DAEF
+participant "Runtime Environment" as Env1 #D5E8D4
+
+Dev1 -> Git1: Push source code
+Git1 -> CICD: Trigger build/test
+CICD -> CICD: Build and test app
+CICD -> CICD: Build container image
+CICD -> Env1: Push new version to runtime
+Env1 --> CICD: Deployment result
+
+
+@enduml

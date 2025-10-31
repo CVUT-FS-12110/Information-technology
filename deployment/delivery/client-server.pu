@@ -1,0 +1,43 @@
+@startuml
+
+skinparam defaultFontSize 20
+
+skinparam node {
+  BackgroundColor #F9F9F9
+  BorderColor #A0A0A0
+  RoundCorner 10
+}
+skinparam artifact {
+  BackgroundColor #D5E8D4
+  BorderColor black
+}
+skinparam cloud {
+  BackgroundColor #D6EAF8
+  BorderColor black
+}
+
+skinparam rectangle {
+  BorderColor #999999
+  FontStyle bold
+  RoundCorner 15
+}
+
+' Force horizontal layout
+left to right direction
+
+
+rectangle "Client-Server" as CS {
+    node "Programmer PC" as PC3
+    node "Server" as Server {
+        artifact "App" as App3
+    }
+    node "User PC" as PC4
+
+    PC3 --> App3
+    App3 --> PC4
+}
+
+
+
+
+@enduml

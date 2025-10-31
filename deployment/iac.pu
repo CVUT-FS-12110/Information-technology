@@ -1,0 +1,41 @@
+@startuml
+title **Infrastructure as Code (IaC) Workflow**
+
+skinparam activity {
+  BorderColor #888888
+  FontColor #333333
+  RoundCorner 10
+  FontSize 14
+}
+
+start
+
+partition "Source Creation" {
+  :<b><color:#1E88E5>Developers</color></b> write code;
+  fork
+    :<b><color:#1565C0>App Code</color></b>;
+    note right: Application logic and features
+  fork again
+    :<b><color:#42A5F5>Infrastructure Code</color></b>;
+    note right: IaC definitions (Terraform, Ansible…)
+  end fork
+}
+
+partition "Version Control & Pipeline" {
+  :Commit to <b>Source Control (Git)</b>;
+  :Trigger <b>Pipeline</b>;
+  :Build and Test Code;
+}
+
+partition "Deployment Targets" {
+  fork
+    :<b><color:#81C784>Development Environment</color></b>;
+  fork again
+    :<b><color:#81C784>Staging Environment</color></b>;
+  fork again
+    :<b><color:#81C784>Production Environment</color></b>;
+  end fork
+}
+
+stop
+@enduml

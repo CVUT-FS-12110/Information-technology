@@ -1,0 +1,35 @@
+@startuml
+
+skinparam participant {
+  BackgroundColor #F9F9F9
+  BorderColor #A0A0A0
+  FontStyle bold
+}
+skinparam sequence {
+  ArrowColor #444444
+  ArrowThickness 1.2
+  LifeLineBorderColor #A0A0A0
+  LifeLineBackgroundColor #FFFFFF
+  ParticipantPadding 20
+}
+skinparam box {
+  BorderColor #999999
+  BackgroundColor #FAFAFA
+  FontStyle bold
+}
+
+actor Developer as Dev2 #ADD8E6
+participant "Git Repository" as Git2 #FDF2E9
+participant "CI Pipeline" as CI #E8DAEF
+participant "GitOps Engine" as GitOps #F9E79F
+participant "Runtime Environment" as Env2 #D5E8D4
+
+Dev2 -> Git2: Push source code
+Git2 -> CI: Trigger build/test
+CI -> CI: Build container image
+CI -> Git2: Commit new manifest (with image tag)
+GitOps -> Git2: Detect manifest change
+GitOps -> Env2: Sync cluster state with Git
+Env2 --> GitOps: Sync status (Success/Failed)
+
+@enduml
