@@ -1,0 +1,20 @@
+@startuml
+skinparam dpi 150
+
+participant Sender
+participant "Hash Function" as H
+participant "Sign\n(Private Key)" as SIG
+participant "Verify\n(Public Key)" as VER
+participant Receiver
+
+Sender -> H : message
+H --> SIG : hash(message)
+SIG --> Sender : signature
+Sender --> Receiver : message + signature
+
+Receiver -> H : message  \n(extracted from received data)
+H --> Receiver : hash(message)
+Receiver -> VER : signature + hash(message)
+VER --> Receiver : valid / invalid
+
+@enduml

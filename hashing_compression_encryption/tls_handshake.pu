@@ -1,0 +1,14 @@
+@startuml
+skinparam dpi 150
+
+actor Client
+actor Server
+
+Client -> Server : Hello (supported ciphers, random)
+Server -> Client : Certificate (public key)
+Client -> Client : Verify certificate
+Client -> Server : Encrypted session key (with public key)
+Server -> Server : Decrypt session key (private key)
+Client <-> Server : Encrypted communication (symmetric)
+
+@enduml
