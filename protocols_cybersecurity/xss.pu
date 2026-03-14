@@ -1,0 +1,34 @@
+@startuml
+title Stored Cross-Site Scripting (XSS) - Conceptual Flow
+
+actor Attacker
+participant "Web Application" as Web
+database "Database" as DB
+participant "Victim Browser" as Browser
+actor Victim
+
+Attacker ->> Web: Submit comment containing malicious script
+Web ->> DB: Store comment without sanitization
+
+Victim -> Web: Request webpage with comments
+Web -> DB: Load stored comments
+DB --> Web: Return comments (including script)
+
+Web --> Browser: Send page with embedded script
+Browser -> Browser: Execute script in victim's session
+
+Browser ->> Attacker: Send stolen session data
+
+note over Web
+Security failure:
+User input not sanitized
+before storing or rendering
+end note
+
+note over Browser
+Script runs with the
+victim's permissions
+in the browser
+end note
+
+@enduml

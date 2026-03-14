@@ -1,0 +1,66 @@
+@startuml
+title Network Protocols - What Runs on What
+
+hide circle
+hide empty members
+skinparam backgroundColor transparent
+
+class Ethernet
+class IP
+class ICMP
+class TCP
+class UDP
+class ARP
+class DNS
+class DHCP
+class HTTP
+class HTTPS
+class TLS
+class FTP
+class SMTP
+class IMAP
+class SSH
+class NTP
+
+note right of Ethernet
+Layer 2 example
+end note
+
+note right of IP
+Layer 3 example
+end note
+
+note right of TCP
+Layer 4 example
+end note
+
+note top of HTTP
+Application layer examples
+end note
+
+
+
+IP --> Ethernet : carried over
+
+ARP --> Ethernet : operates on
+
+
+ICMP --> IP : uses
+TCP --> IP : uses
+UDP --> IP : uses
+
+DNS --> UDP : usually uses
+DNS --> TCP : sometimes uses
+DHCP --> UDP : uses
+NTP --> UDP : uses
+
+HTTP --> TCP : uses
+FTP --> TCP : uses
+SMTP --> TCP : uses
+IMAP --> TCP : uses
+SSH --> TCP : uses
+
+TLS --> TCP : uses
+HTTPS --> TLS : uses
+
+@enduml

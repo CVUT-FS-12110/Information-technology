@@ -1,0 +1,18 @@
+@startuml
+title SQL injection - conceptual flow
+
+actor Attacker
+participant "Web Application" as W
+database "Database" as DB
+
+Attacker -> W: Submit malicious input in form field
+W -> DB: Build unsafe query using input
+DB --> W: Return unintended data
+W --> Attacker: Expose sensitive information
+
+note over W
+Problem: input is not sanitized
+and parameterized queries are not used
+end note
+
+@enduml

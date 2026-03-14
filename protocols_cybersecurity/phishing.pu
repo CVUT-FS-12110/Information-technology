@@ -1,0 +1,27 @@
+@startuml
+title Phishing attack
+
+actor User
+participant "Attacker" as A
+participant "Email Provider" as E
+participant "Fake Login Page" as F
+participant "Real Service" as S
+
+A ->> E: Submit phishing email
+E ->> User: Deliver phishing email with fake link
+
+User -> F: Request fake login page
+F --> User: Return fake login form
+
+User -> F: Submit username and password
+F --> User: Show fake success / redirect page
+
+F ->> A: Send captured credentials
+
+A -> S: Submit stolen credentials
+S --> A: Authentication result / access granted
+
+User -> S: Attempt legitimate login later
+S --> User: Show suspicious activity / login problem
+
+@enduml

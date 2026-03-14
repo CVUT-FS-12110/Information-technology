@@ -1,0 +1,27 @@
+@startuml
+title Man-in-the-Middle Attack - Conceptual Flow
+
+actor User
+participant "Attacker (MITM)" as MITM
+participant "Web Server" as Server
+
+User -> MITM: Request login page
+MITM -> Server: Forward request
+
+Server --> MITM: Send login page
+MITM --> User: Relay page
+
+User -> MITM: Submit username and password
+MITM -> MITM: Capture credentials
+
+MITM -> Server: Forward login request
+Server --> MITM: Authentication response
+MITM --> User: Relay response
+
+note over User,Server
+Communication appears normal
+to both parties
+end note
+
+
+@enduml

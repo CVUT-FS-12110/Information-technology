@@ -1,0 +1,31 @@
+@startuml
+title Cross-Site Request Forgery (CSRF) - Conceptual Flow
+
+actor Victim
+participant "Victim Browser" as Browser
+participant "Trusted Web Application" as WebApp
+participant "Attacker Website" as Attacker
+
+Victim ->> WebApp: Login with credentials
+WebApp ->> Browser: Session cookie stored
+
+Victim -> Attacker: Visit malicious webpage
+Attacker --> Browser: Send hidden request (e.g., auto-submitting form)
+
+Browser -> WebApp: Send request with session cookie
+WebApp -> WebApp: Process request as authenticated user
+WebApp --> Browser: Action completed (e.g., change settings, transfer funds)
+
+note over Browser
+Browser automatically
+includes stored cookies
+with the request
+end note
+
+note over WebApp
+Server cannot distinguish
+between legitimate user action
+and forged request
+end note
+
+@enduml

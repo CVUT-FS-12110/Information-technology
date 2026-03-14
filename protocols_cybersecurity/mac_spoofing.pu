@@ -1,0 +1,27 @@
+@startuml
+title MAC Spoofing - Conceptual Flow
+
+actor Attacker
+participant "Attacker Device" as AD
+participant "Switch / Local Network" as LAN
+participant "Victim Device" as Victim
+participant "Network Service" as Service
+
+Victim ->> LAN: Communicate using legitimate MAC address
+Attacker ->> AD: Change MAC address to victim's MAC
+AD ->> LAN: Send frames using spoofed MAC address
+LAN ->> Service: Forward traffic believing it is from victim device
+
+note over AD
+Attacker impersonates another
+device at the data-link layer
+inside the local network
+end note
+
+note over LAN
+If the network relies on MAC identity,
+it may confuse the attacker
+with the legitimate device
+end note
+
+@enduml

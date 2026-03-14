@@ -1,0 +1,29 @@
+@startuml
+title IP Spoofing - Conceptual Flow
+
+actor Attacker
+participant "Target Server" as Server
+participant "Trusted Host" as Trusted
+
+Attacker ->> Server: Send packet\nsource IP = Trusted Host
+Server ->> Trusted: Send response to spoofed address
+
+note over Trusted
+Trusted host receives an
+unexpected response because
+it never sent the request
+end note
+
+note over Server
+Server believes the packet
+originated from the trusted host
+because the source IP was forged
+end note
+
+note over Attacker
+Used for hiding origin,
+bypassing simple IP-based trust,
+or enabling reflection attacks
+end note
+
+@enduml

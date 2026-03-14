@@ -1,0 +1,32 @@
+@startuml
+title DNS Spoofing - Conceptual Flow
+
+actor User
+participant "User Device" as Client
+participant "DNS Resolver" as DNS
+participant "Attacker" as A
+participant "Fake Website" as Fake
+
+User -> Client: Enter legitimate website address
+
+Client -> DNS: Send DNS query for domain
+A --> Client: Send forged DNS reply first
+
+Client -> Client: Cache / accept fake IP address
+
+Client -> Fake: Connect to malicious server
+Fake --> Client: Return fake webpage
+Client --> User: Show fake website
+
+note over Client
+If the forged DNS response
+is accepted, the user is sent
+to the wrong destination
+end note
+
+note over A
+Attacker spoofs the DNS reply
+without changing what the user typed
+end note
+
+@enduml
