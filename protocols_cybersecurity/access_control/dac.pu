@@ -1,0 +1,36 @@
+@startuml
+title Discretionary Access Control (DAC)
+
+hide circle
+hide empty members
+skinparam backgroundColor transparent
+
+
+
+class User {
+  +userId: String
+  +name: String
+}
+
+class Resource {
+  +resourceId: String
+  +name: String
+}
+
+class OwnerPermission {
+  +read: Boolean
+  +write: Boolean
+  +execute: Boolean
+}
+
+User "1" -- "0..*" Resource : owns >
+User "1" -- "0..*" OwnerPermission : receives >
+Resource "1" -- "0..*" OwnerPermission : for >
+
+note right of OwnerPermission
+Owner (or delegated user)
+assigns permissions
+to specific users.
+end note
+
+@enduml

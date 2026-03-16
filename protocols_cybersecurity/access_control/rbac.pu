@@ -1,0 +1,38 @@
+@startuml
+title Role-Based Access Control (RBAC)
+
+hide circle
+hide empty members
+skinparam backgroundColor transparent
+
+class User {
+  +userId: String
+  +name: String
+}
+
+class Role {
+  +roleId: String
+  +name: String
+}
+
+class Permission {
+  +action: String
+}
+
+class Resource {
+  +resourceId: String
+  +name: String
+}
+
+User "0..*" -- "0..*" Role : assigned >
+Role "1" -left- "0..*" Permission : grants >
+Permission "0..*" -- "1" Resource : applies to >
+
+note right of Role
+Users are not assigned
+permissions directly.
+Permissions are grouped
+into roles.
+end note
+
+@enduml

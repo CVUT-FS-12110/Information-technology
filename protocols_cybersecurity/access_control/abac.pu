@@ -1,0 +1,47 @@
+@startuml
+title Attribute-Based Access Control (ABAC)
+
+hide circle
+hide empty members
+skinparam backgroundColor transparent
+
+class Subject {
+  +subjectId: String
+  +department: String
+  +jobTitle: String
+  +location: String
+}
+
+class Object {
+  +objectId: String
+  +type: String
+  +ownerDepartment: String
+  +sensitivity: String
+}
+
+class Action {
+  +name: String
+}
+
+class Environment {
+  +time: String
+  +networkZone: String
+}
+
+class Policy {
+  +evaluate(subject, object, action, environment): Boolean
+}
+
+Policy ..> Subject
+Policy ..> Object
+Policy ..> Action
+Policy ..> Environment
+
+note top of Policy
+Decision is based on attributes of subject,
+object, action, and environment.
+Example:
+department == ownerDepartment and time < 18:00
+end note
+
+@enduml

@@ -1,0 +1,52 @@
+@startuml
+title Mandatory Access Control (MAC)
+
+hide circle
+hide empty members
+skinparam backgroundColor transparent
+
+class Subject {
+  +subjectId: String
+  +name: String
+  +clearanceLevel: SecurityLevel
+}
+
+class Object {
+  +objectId: String
+  +name: String
+  +classificationLevel: SecurityLevel
+}
+
+enum SecurityLevel {
+  Unclassified
+  Confidential
+  Secret
+  TopSecret
+}
+
+class PolicyRule {
+  +canRead(subject, object): Boolean
+  +canWrite(subject, object): Boolean
+}
+
+Subject --> SecurityLevel : clearance
+Object --> SecurityLevel : classification
+PolicyRule ..> Subject
+PolicyRule ..> Object
+
+note bottom of PolicyRule
+Access is determined by
+central policy and labels,
+not by the object owner.
+Example:
+"No read up, no write down"
+end note
+
+note left of Subject
+- user
+- process
+- running program
+end note
+
+
+@enduml
